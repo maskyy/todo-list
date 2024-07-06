@@ -44,7 +44,7 @@ class Task(BaseModel):
     todo_list_id = ForeignKeyField(TodoList, backref="tasks")
     name = TextField()
     description = TextField(null=True)
-    status = TextField()
+    status = TextField(null=True)
     created_at = DateTimeTZField(default="CURRENT_TIMESTAMP")
 
     class Meta:
