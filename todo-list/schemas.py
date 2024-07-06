@@ -10,11 +10,16 @@ class ModelDelete(BaseModel):
 
 class UserBase(BaseModel):
     login: str
-    password: str
 
 
 class UserCreate(UserBase):
-    pass
+    password: str
+
+
+class UserLogin(UserBase):
+    """Semantically different from UserCreate"""
+
+    password: str
 
 
 class User(UserBase):

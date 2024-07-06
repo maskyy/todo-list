@@ -20,32 +20,32 @@ class BaseModel(Model):
 
 
 class User(BaseModel):
-    id = UUIDField(primary_key=True, default="gen_random_uuid()")
+    id = UUIDField(primary_key=True, constraints=[SQL("DEFAULT gen_random_uuid()")])
     login = TextField(unique=True)
     password = TextField()
-    created_at = DateTimeTZField(default="CURRENT_TIMESTAMP")
+    created_at = DateTimeTZField(constraints=[SQL("DEFAULT CURRENT_TIMESTAMP")])
 
     class Meta:
         table_name = "users"
 
 
 class TodoList(BaseModel):
-    id = UUIDField(primary_key=True, default="gen_random_uuid()")
+    id = UUIDField(primary_key=True, constraints=[SQL("DEFAULT gen_random_uuid()")])
     user_id = ForeignKeyField(User, backref="todo_lists")
     name = TextField()
-    created_at = DateTimeTZField(default="CURRENT_TIMESTAMP")
+    created_at = DateTimeTZField(constraints=[SQL("DEFAULT CURRENT_TIMESTAMP")])
 
     class Meta:
         table_name = "todo_lists"
 
 
 class Task(BaseModel):
-    id = UUIDField(primary_key=True, default="gen_random_uuid()")
+    id = UUIDField(primary_key=True, constraints=[SQL("DEFAULT gen_random_uuid()")])
     todo_list_id = ForeignKeyField(TodoList, backref="tasks")
     name = TextField()
     description = TextField(null=True)
     status = TextField(null=True)
-    created_at = DateTimeTZField(default="CURRENT_TIMESTAMP")
+    created_at = DateTimeTZField(constraints=[SQL("DEFAULT CURRENT_TIMESTAMP")])
 
     class Meta:
         table_name = "tasks"

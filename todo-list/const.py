@@ -1,1 +1,3 @@
 TITLE = "TODO List"
+
+JWT_ALGORITHM = "HS256"
