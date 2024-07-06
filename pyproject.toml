@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "todo-list"
+version = "0.1.0"
+description = "TODO List API"
+authors = ["maskyy <62175286+maskyy@users.noreply.github.com>"]
+license = "The Unlicense"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi-slim = "^0.111.0"
+uvicorn = "^0.30.1"
+
+[tool.poetry.group.dev.dependencies]
+gray = "^0.15.0"
+fastapi = "^0.111.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
